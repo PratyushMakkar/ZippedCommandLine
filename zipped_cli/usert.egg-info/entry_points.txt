@@ -1,0 +1,4 @@
+[console_scripts]
+login = commands.loginCommand:login
+zipped = commands.zippedCommand:zipped
+
