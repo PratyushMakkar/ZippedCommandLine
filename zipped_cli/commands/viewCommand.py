@@ -58,8 +58,8 @@ def file(ctx, count:int = 3):
         STATUS_404="The server was unable to find your username or password. Please confirm you login information",
         STATUS_500="The server encountered an internal error and was unable to process your request"
     )
+    
     files = _DeserializeResponseToFiles(response)
-
     _OrganizeResponsesInTable(files)
 
 if __name__ == "__main__":

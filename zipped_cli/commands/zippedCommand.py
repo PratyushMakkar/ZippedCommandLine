@@ -23,7 +23,14 @@ def _CreateDesktopFolder():
     printYellow("Creating directory: {0} at location {1}".format(directory_name, _desktop))
     os.mkdir(_path)
     return _path
-    
+
+def ReturnCtxObj():
+    config_home = _CreateDesktopFolder()
+    path = "{0}/{1}".format(config_home, ".json")
+    if (os.path.exists(path)):
+        return Configuration(_path, path)
+    return 
+
 @click.group()
 @click.option("--home", default = _path)
 @click.pass_context

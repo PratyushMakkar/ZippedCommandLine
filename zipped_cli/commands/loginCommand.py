@@ -9,7 +9,7 @@ from api.exceptions.ZippedRuntimeException import ZippedRuntimeException
 from api.user import SearchResource
 from models.Configuration import Configuration
 
-    
+
 @click.command()
 @click.option('--user' ,prompt = "Username", help='Your username')
 @click.password_option('--password', prompt = "Password", help='Password')
@@ -50,6 +50,7 @@ def login(ctx, user: str, password: str, new: bool):
         STATUS_500="The server encountered an internal error and was unable to process your request",
         STATUS_404= "The server was unable to find your username or password. Please confirm you login information"
     )
+
     # If the response returned is not null, a folder 'Zipped' would be created in the desktop and the environement varibales will be set as the user and password
     if (response):
         config: Configuration = ctx.obj
