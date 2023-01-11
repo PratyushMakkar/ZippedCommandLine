@@ -18,8 +18,8 @@ Verify that the tool is installed by using the command
 You should then be prompted to login using a username and password. 
 
 
-## Tool Documentation
-#####Creating a new user using Zipped login
+## :electric_plug: Tool Documentation
+##### Creating a new user using Zipped login
 
 To create a new user, simply use the command <kbd>zipped login --new</kbd>. You will then be prompted to create a user-id and password. Here is an example below,
 
@@ -27,7 +27,7 @@ To create a new user, simply use the command <kbd>zipped login --new</kbd>. You 
 
 Note that a new folder named <kbd>Zipped</kbd> will created in your home desktop. This folder will contain a configuration file named <kbd>config.json</kbd> 
 
-#### Logging in using an existing user/password
+##### Logging in using an existing user/password
 To log in with an existing user ID, simply omit the <kbd>--new</kbd> flag. You will then be prompted to login and confirm your username and password.
  
 ![Alt text](./zipped_cli/assets/LoginAndViewFiles.png)
