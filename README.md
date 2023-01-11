@@ -27,15 +27,15 @@ To create a new user, simply use the command <kbd>zipped login --new</kbd>. You 
 
 Note that a new folder named <kbd>Zipped</kbd> will created in your home desktop. This folder will contain a configuration file named <kbd>config.json</kbd> 
 
-#####Logging in using an existing user/password
+#### Logging in using an existing user/password
 To log in with an existing user ID, simply omit the <kbd>--new</kbd> flag. You will then be prompted to login and confirm your username and password.
  
 ![Alt text](./zipped_cli/assets/LoginAndViewFiles.png)
 
-#####Viewing recieved files
+##### Viewing recieved files
 In the above example, we have also shown how to view files. Using the command <kbd>zipped file</kbd>. The file will contain a list including the URL, which can be used alongside the download command. 
 
-#####Downloading a file using zipped download 
+##### Downloading a file using zipped download 
 To download a file, use the command <kbd>zipped download {url}</kbd>. Here is an example below, 
 
 ![Alt text](./zipped_cli/assets/ZippedDownload.png)
