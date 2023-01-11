@@ -10,7 +10,7 @@ import json
 
 @click.command()
 @click.argument("file", type=click.Path(exists=True))
-@click.option("--recipient", multiple = True, type = str)
+@click.option("--recipient", type = str)
 @click.pass_context
 def upload(ctx, file: str, recipient):
 
@@ -22,7 +22,7 @@ def upload(ctx, file: str, recipient):
         'password': _password,
         'filename': file,
         'reciepients': [
-            "username15"
+            recipient
         ]
     }
 
@@ -33,7 +33,7 @@ def upload(ctx, file: str, recipient):
         STATUS_500="The server encountered an internal error and was unable to process your request",
         STATUS_404= "The server was unable to find your username or password. Please confirm you login information"
     )
-    print(response)
+    
     if not response:
         raise ZippedRuntimeException(detail="The server unexpectedly did not return a response")
 

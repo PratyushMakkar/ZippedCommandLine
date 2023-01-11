@@ -18,7 +18,7 @@ def _OrganizeResponsesInTable(files):
 
     for file in files:
         try: 
-            tb.add_row([file.id, file.name, file.owner, "{0}....".format(file.url[0:30])])
+            tb.add_row([file.id, "{0}...".format(file.name[0:30]), file.owner, "{0}....".format(file.url)])
         except AttributeError:
             raise ZippedRuntimeException(detail= "The response from the server was malformed. A file's attributes have been corrupted")
 
