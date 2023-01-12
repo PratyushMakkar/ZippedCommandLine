@@ -35,6 +35,10 @@ To log in with an existing user ID, simply omit the <kbd>--new</kbd> flag. You w
 ##### Viewing recieved files
 In the above example, we have also shown how to view files. Using the command <kbd>zipped file</kbd>. The file will contain a list including the URL, which can be used alongside the download command. 
 
+##### Uploading a file 
+To upload a file, you can use the command <kbd>zipped upload {fileLocation} --recipient</kbd>. The recipeint flag is used to specify to whom you would like to send the file to. The file location must be relative the user in Unix operating systems. Here is an example of the command, 
+
+![Alt text](./zipped_cli/assets/UploadCommand.png)
 ##### Downloading a file using zipped download 
 To download a file, use the command <kbd>zipped download {url}</kbd>. Here is an example below, 
 
