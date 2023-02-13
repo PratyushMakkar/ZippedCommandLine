@@ -1,4 +1,5 @@
 import os
+from urllib.request import HTTPBasicAuthHandler
 from pkg_resources import require
 import requests
 from requests import status_codes
@@ -6,6 +7,7 @@ from dotenv import load_dotenv
 from requests.exceptions import ConnectionError
 import json
 
+from requests.auth import HTTPBasicAuth
 from api.exceptions.ZippedRuntimeException import ZippedRuntimeException
 
 load_dotenv()
@@ -33,15 +35,18 @@ def SearchResource(username, password,
     STATUS_404: str, 
     STATUS_200 = None
 ):
+    basic = HTTPBasicAuth(username, password)
+
     json_body = dict(
         username= username,
         password = password
     )
+
     url = "{0}/user/{1}".format(SERVER_URL, resource_path)
 
     try:
         response = requests.get(url=url,
-           json= json_body
+           auth = basic
         )
     except ConnectionError as err:
         raise ZippedRuntimeException(detail= "There was a connection error. Please check your connection")
@@ -92,6 +97,8 @@ def POSTResource(json_body,
     
 def UserExists(username, password) -> object: 
 
+    basic = HTTPBasicAuth(username, password)
+    
     json_body = dict(
         username= username,
         password = password
@@ -100,7 +107,7 @@ def UserExists(username, password) -> object:
         
     try:
         response = requests.get(url=url,
-           json= json_body
+           auth = basic
         )
     except ConnectionError as err:
         raise ZippedRuntimeException(detail= "There was a connection error. Please check your connection")
@@ -119,6 +126,8 @@ def CreateNewUser(user: str, password:str):
     return None
 
 def SearchFiles(username: str, password: str):
+    
+    basic = HTTPBasicAuth(username, password)
 
     json_body = dict(
         username= username,
@@ -129,7 +138,7 @@ def SearchFiles(username: str, password: str):
 
     response = requests.get(
         url= resource_url,
-        json=json_body
+        auth = basic
     )
 
     match response.status_code:
